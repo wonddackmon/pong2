@@ -37,8 +37,8 @@ class Pong:
     # MEMBER 2
     def update_ball_pos(self):
         # update ball.pos following dx, dy
-        self.ball.pos[0] += dx
-        self.ball.pos[1] += dy
+        self.ball.pos[0] += self.ball.dx
+        self.ball.pos[1] += self.ball.dy
         writer.clear(); writer.write("ball_pos"+str(self.ball.pos))
 
     def check_ball_pos(self):
@@ -120,7 +120,6 @@ sim = Simulate(pong)
 while True:
     game_over = False
     # update ball_pos in the pong object
-    # ...
     sim.update_obj()
     # check ball_pos and decide game_over
     # ...
