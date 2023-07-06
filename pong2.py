@@ -52,6 +52,21 @@ class Pong:
 
     # MEMBER 3
     def process_player_hit(self):
+        diff_x=0
+        diff_y=0
+        diff_xL = self.ball.pos[0]-self.playerL.pos[0]
+        diff_yL = abs(self.ball.pos[1]-self.playerL.pos[1])
+        diff_xR = self.playerR.pos[0]-self.ball.pos[0]
+        diff_yR = abs(self.ball.pos[1]-self.playerR.pos[1])
+        if diff_xL<diff_xR:
+            diff_x=diff_xL 
+            diff_y=diff_yL
+        else:
+            diff_x=diff_xR
+            diff_y=diff_yR
+        if diff_x < 20 and diff_y < 70:
+            self.ball.dx*=-1
+            return True
         # let's say: diff = difference between ball.pos and  player.pos
         # if diff_x is below 20 and diff_y is below 70 (for either player), consider this a player-hit
         # if a player-hit occurs, return True and reverse the ball direction along x-axis.
