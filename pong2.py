@@ -17,7 +17,6 @@ class Pong:
         self.playerR = Object2D(pos=[350, 0], width=4, height=1)
         self.ball = Object2D(pos=[0,0], width=1, height=1, shape="circle", color="orange", dx=0.15, dy=0.15)
 
-    # MEMBER-3/4
     # player move functions
     def playerL_up(self):
         self.playerL.pos[1] += 10
@@ -38,7 +37,8 @@ class Pong:
     # MEMBER 2
     def update_ball_pos(self):
         # update ball.pos following dx, dy
-        # ...
+        self.ball.pos[0] += dx
+        self.ball.pos[1] += dy
         writer.clear(); writer.write("ball_pos"+str(self.ball.pos))
 
     def check_ball_pos(self):
